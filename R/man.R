@@ -29,7 +29,7 @@ getManSection <- function(rd, section)
 
 getHelpFromText <- function(rd, arg)
 {
-    args <- RGalaxy:::parseSectionFromText(rd, "Arguments")
+    args <- parseSectionFromText(rd, "Arguments")
     lines <- strsplit(args, "\n")[[1]]
     ret <- character()
     cont <- FALSE

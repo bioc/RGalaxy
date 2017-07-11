@@ -15,4 +15,14 @@ export(addTwoNumbers, addTwoNumbersWithTest)
 import(BiocGenerics)
 importFrom(Biobase, copySubstitute)
 importFrom(roxygen2, roxygenize, rd_roclet)
+importFrom(grDevices, dev.off, pdf, png)
+importFrom(graphics, plot)
+importFrom(methods, extends, new)
+importFrom(utils, capture.output, packageDescription, read.delim,
+           write.csv)
+importFrom(XML, newXMLNode, newXMLTextNode, removeNodes, saveXML,
+           xmlAttrs, "xmlAttrs<-", xmlChildren, xmlInternalTreeParse,
+           xpathSApply)
+importFrom(tools, Rd2txt, parse_Rd)
+
 ##exportMethods(format)

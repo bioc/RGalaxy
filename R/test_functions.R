@@ -116,7 +116,7 @@ foo = function(input = GalaxyInputFile(),
     output=GalaxyOutput("pdf")) 
 {
     pdf(output)
-    plot(cars)
+    plot(datasets::cars)
     dev.off()
 }
 
@@ -144,9 +144,10 @@ probeLookup <- function(
         testValues="1002_f_at 1003_s_at"),
     outputfile=GalaxyOutput("probeLookup", "csv"))
 {
-    suppressPackageStartupMessages(library(hgu95av2.db))
+    suppressPackageStartupMessages(requireNamespace("hgu95av2.db"))
     ids <- strsplit(probe_ids, " ")[[1]]
-    results <- select(hgu95av2.db, keys=ids, columns=c("SYMBOL","PFAM"),
+    results <- AnnotationDbi::select(
+        hgu95av2.db::hgu95av2.db, keys=ids, columns=c("SYMBOL","PFAM"),
         keytype="PROBEID")
     write.csv(results, file=outputfile)
 }
