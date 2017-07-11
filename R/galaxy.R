@@ -613,7 +613,7 @@ runFunctionalTest <- function(func, functionalTestDirectory)
 
         generated <- unlist(outfiles[outfilename])
         fixture <- file.path(fixtureDir, funcInfo[[outfilename]]$param)
-        diff <- tools:::md5sum(generated) == tools:::md5sum(fixture)
+        diff <- tools::md5sum(generated) == tools::md5sum(fixture)
         diffOK <- c(diffOK, diff)
         if(!diff)
             gwarning("Generated '%s' differs from fixture", unname(outfilename))
