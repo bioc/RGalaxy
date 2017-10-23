@@ -312,12 +312,14 @@ test_missing_param <- function()
     args <- sprintf("%s --requiredParam required --outfile=%s", R_file, d)
     res <- system2(R_exe, args, stdout="", stderr="")
     checkEquals(0, res)
-    output <- paste(readLines(d), collapse="")
-    expected <- paste0(
-        "requiredParam==required\\n",
-        "paramWithDefault==GalaxyIntegerParam(1)\\n",
-        "optionalParam==GalaxyCharacterParam()\\n",
-        "outfile==", d, "\\n")
+    output <- readLines(d)
+    output <- output[nzchar(output)]
+    expected <- c(
+        "requiredParam==required",
+        "paramWithDefault==GalaxyIntegerParam(1)",
+        "optionalParam==GalaxyCharacterParam()",
+        paste0("outfile==", d)
+    )
     checkEquals(expected, output)
 }
 
