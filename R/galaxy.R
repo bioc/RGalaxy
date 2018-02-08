@@ -246,7 +246,8 @@ galaxy <-
                 type <- "data"
                 if (length(galaxyItem@formatFilter))
                     xmlAttrs(paramNode)["format"] <- galaxyItem@formatFilter
-
+                else
+                    xmlAttrs(paramNode)["format"] <- "data" #default format of an input file
             }
             if (item$length > 1 || "GalaxySelectParam" %in% class(galaxyItem))
             {
