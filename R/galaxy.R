@@ -246,7 +246,8 @@ galaxy <-
                 type <- "data"
                 if (length(galaxyItem@formatFilter))
                     xmlAttrs(paramNode)["format"] <- galaxyItem@formatFilter
-
+                else
+                    xmlAttrs(paramNode)["format"] <- "data" #default format of an input file
             }
             if (item$length > 1 || "GalaxySelectParam" %in% class(galaxyItem))
             {
@@ -345,7 +346,10 @@ galaxy <-
         testNode <- newXMLNode("test", parent=testsNode)
         for (info in funcInfo)
         {
-            testParamNode <- newXMLNode("param", parent=testNode)
+            if (info$type == "GalaxyOutput")
+                testParamNode <- newXMLNode("output", parent=testNode)
+            else
+                testParamNode <- newXMLNode("param", parent=testNode)
             xmlAttrs(testParamNode)["name"] <- info$param
             if (length(info$type) > 0 && 
                 info$type %in% c("GalaxyInputFile", "GalaxyOutput"))
