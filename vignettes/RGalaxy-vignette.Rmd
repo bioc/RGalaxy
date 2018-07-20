@@ -310,8 +310,9 @@ galaxy("addTwoNumbersWithTest",
 Install the RSclient package:
 
 ```{r install_RSclient, eval=FALSE}
-source("http://bioconductor.org/biocLite.R")
-biocLite("RSclient", siteRepos="http://www.rforge.net")
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("RSclient", site_repository="http://www.rforge.net")
 ```
 
 

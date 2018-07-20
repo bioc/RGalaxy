@@ -453,7 +453,7 @@ createScriptFile <- function(scriptFileName, func, funcName, funcInfo,
     {
         if (!require(RSclient))
             gstop(paste("The RSclient package is required. Install it with:\n",
-                "biocLite('RSclient', siteRepos='http://www.rforge.net')"))
+                "BiocManager::install('RSclient', site_repository='http://www.rforge.net')"))
         repList$LIBRARY <- "suppressPackageStartupMessages(library(RSclient))"
         repList$DOCALL <- 
             paste(sprintf("c <- RS.connect(host='%s', port=%s)",
