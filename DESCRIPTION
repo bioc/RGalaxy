@@ -2,7 +2,7 @@ Package: RGalaxy
 Title: Make an R function available in the Galaxy web platform 
 Description: Given an R function and its manual page, make the documented
     function available in Galaxy. 
-Version: 1.37.1
+Version: 1.37.2
 Author: Dan Tenenbaum
 Maintainer: Bioconductor Package Maintainer <maintainer@bioconductor.org>
 biocViews: Infrastructure
@@ -32,4 +32,6 @@ Collate:
     'man.R'
     'test_functions.R'
     'utils.R'
+    'zzz.R'
 VignetteBuilder: knitr
+PackageStatus: Deprecated
